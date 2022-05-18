@@ -106,6 +106,11 @@ export default {
           icon: 'mdi-chart-bubble',
           title: 'Inspire',
           to: '/inspire'
+        },
+        {
+          icon: 'mdi-table',
+          title: 'Test Space',
+          to: '/test'
         }
       ],
       miniVariant: false,
