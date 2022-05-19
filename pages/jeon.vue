@@ -1,6 +1,7 @@
 <template>
     <div id="app">
         <h2>hello {{userName}}</h2>
+        <div>hi</div>
     </div>
 </template>
 
@@ -10,16 +11,16 @@ export default {
 
     data() {
         return {
-            
+
         };
     },
 
     mounted() {
-        
+
     },
 
     methods: {
-        
+
     },
 };
 
