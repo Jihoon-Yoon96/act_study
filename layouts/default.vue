@@ -1,5 +1,6 @@
 <template>
   <v-app dark>
+    <Systembar/>
     <v-navigation-drawer
       v-model="drawer"
       :mini-variant="miniVariant"
@@ -60,6 +61,7 @@
     <v-main>
       <v-container>
         <Nuxt />
+<!--        <router-view></router-view>-->
       </v-container>
     </v-main>
     <v-navigation-drawer
@@ -89,8 +91,12 @@
 </template>
 
 <script>
+import Systembar from "@/layouts/Systembar";
 export default {
   name: 'DefaultLayout',
+  components:{
+    Systembar,
+  },
   data () {
     return {
       clipped: false,
@@ -111,6 +117,11 @@ export default {
           icon: 'mdi-table',
           title: 'Test Space',
           to: '/test'
+        },
+        {
+          icon: 'mdi-apps',
+          title: 'Login',
+          to: '/login/login'
         }
       ],
       miniVariant: false,
