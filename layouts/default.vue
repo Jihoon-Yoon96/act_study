@@ -122,6 +122,11 @@ export default {
           icon: 'mdi-apps',
           title: 'Login',
           to: '/login/login'
+        },
+        {
+          icon: 'mdi-apps',
+          title: 'Main',
+          to: '/view/main_view'
         }
       ],
       miniVariant: false,
