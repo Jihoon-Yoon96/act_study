@@ -114,19 +114,14 @@ export default {
           to: '/inspire'
         },
         {
-          icon: 'mdi-table',
-          title: 'Test Space',
-          to: '/test'
-        },
-        {
-          icon: 'mdi-apps',
-          title: 'Login',
-          to: '/login/login'
-        },
-        {
           icon: 'mdi-apps',
           title: 'Main',
           to: '/view/main_view'
+        },
+        {
+          icon: 'mdi-table',
+          title: 'CRUD',
+          to: '/crud/read'
         }
       ],
       miniVariant: false,

@@ -2,22 +2,36 @@
   <div class="text-center">
     <v-dialog
       v-model="dialog"
+      persistent
       width="800"
     >
       <template v-slot:activator="{ on, attrs }">
           <v-btn
             v-bind="attrs"
             v-on="on"
-            depressed
+
+            plain
             color="white">
-            <v-icon  color="blue" large>mdi-plus</v-icon>
+            <v-icon color="orange" x-large>mdi-plus</v-icon>
           </v-btn>
       </template>
 
       <v-card>
-        <v-card-title class="text-h5 grey lighten-2">
-          상품 추가
-        </v-card-title>
+        <v-toolbar color="orange" class="">
+          <v-toolbar-title class="text-h5 white--text font-weight-bold lighten-2">
+            상품 추가
+          </v-toolbar-title>
+          <v-spacer/>
+          <v-toolbar-items>
+            <v-btn
+              dark
+              text
+              @click="dialog = false"
+            >
+              <v-icon>mdi-close</v-icon>
+            </v-btn>
+          </v-toolbar-items>
+        </v-toolbar>
 
         <v-card-text>
           <v-form v-model="valid">
@@ -31,7 +45,7 @@
                     v-model="goodsname"
                     label="상품명"
                     :rules="nameRules"
-                    :counter="10"
+                    :counter="30"
                     :placeholder="goodsname"
                     required
                   ></v-text-field>
@@ -58,7 +72,7 @@
                 >
                   <v-file-input
                     show-size
-                    counter
+                    :counter="1"
                     multiple
                     small-chips
                     :rules="imgRules"
@@ -76,11 +90,11 @@
         <v-card-actions>
           <v-spacer></v-spacer>
           <v-btn
-            color="primary"
+            color="orange"
             text
             @click="dialog = false"
           >
-            I accept
+            상품 추가
           </v-btn>
         </v-card-actions>
       </v-card>
@@ -99,7 +113,7 @@ export default {
       goodsname: '',
       nameRules: [
         v => !!v || '상품명을 입력해주세요',
-        v => v.length <= 20 || '상품명은 20자 이내로 가능합니다.',
+        v => v.length <= 40 || '상품명은 40자 이내로 등록 가능합니다.',
       ],
       price: '',
       priceRules: [
@@ -114,7 +128,7 @@ export default {
     }
   },
   methods:{
-    sendGoodsInfo(){
+    createGoodsInfo(){
       axios.post(url,{
         name : this.goodsname,
         price : this.price,
