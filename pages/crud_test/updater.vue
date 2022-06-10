@@ -6,20 +6,19 @@
       width="800"
     >
       <template v-slot:activator="{ on, attrs }">
-          <v-btn
-            v-bind="attrs"
-            v-on="on"
-
-            plain
-            color="white">
-            <v-icon color="orange" x-large>mdi-plus</v-icon>
-          </v-btn>
+        <v-btn
+          v-bind="attrs"
+          v-on="on"
+          depressed
+          color="white">
+          <v-icon color="blue">mdi-wrench</v-icon>
+        </v-btn>
       </template>
 
       <v-card>
-        <v-toolbar color="orange" class="">
+        <v-toolbar color="primary" class="">
           <v-toolbar-title class="text-h5 white--text font-weight-bold lighten-2">
-            상품 추가
+            상품 수정
           </v-toolbar-title>
           <v-spacer/>
           <v-toolbar-items>
@@ -42,7 +41,7 @@
                   md="4"
                 >
                   <v-text-field
-                    v-model="goodsname"
+                    v-model="g_name"
                     label="상품명"
                     :rules="nameRules"
                     :counter="30"
@@ -56,8 +55,8 @@
                   md="4"
                 >
                   <v-text-field
-                    v-model="price"
-                    label="price"
+                    v-model="g_price"
+                    label="상품 가격"
                     :rules="priceRules"
                     :counter="10"
                     :placeholder="price"
@@ -77,6 +76,7 @@
                     small-chips
                     :rules="imgRules"
                     label="상품 이미지"
+                    v-model="g_img"
                   ></v-file-input>
 
                 </v-col>
@@ -90,11 +90,11 @@
         <v-card-actions>
           <v-spacer></v-spacer>
           <v-btn
-            color="orange"
+            color="primary"
             text
             @click="dialog = false"
           >
-            상품 추가
+            수정 완료
           </v-btn>
         </v-card-actions>
       </v-card>
@@ -104,8 +104,9 @@
 
 <script>
 import axios from "axios";
+
 export default {
-  name: "creater.vue",
+  name: "updater",
   data(){
     return{
       dialog: false,
@@ -113,30 +114,40 @@ export default {
       goodsname: '',
       nameRules: [
         v => !!v || '상품명을 입력해주세요',
-        v => v.length <= 40 || '상품명은 40자 이내로 등록 가능합니다.',
+        v => v.length <= 40 || '상품명은 40자 이내로 수정 가능합니다.',
       ],
       price: '',
       priceRules: [
         v => !!v || '가격을 입력해주세요',
-        v => v >= 100 || '100원 이상만 등록 가능합니다.',
+        v => v >= 100 || '100원 이상만 수정 가능합니다.',
       ],
       img: '',
       imgRules:[
-        v => !!v || '이미지를 등록해주세요',
-        v => !v || v.size < 30000000 || '30 MB 이하의 파일만 등록 가능합니다.',
+          v => !!v || '이미지를 등록해주세요',
+          v => !v || v.size < 30000000 || '30 MB 이하의 파일만 수정 가능합니다.',
       ]
     }
   },
+  props:{
+    g_name: String,
+    g_price: Number,
+    g_img: Object
+  },
+  computed:{
+    fromParents : function(){
+      return this.goodsname = this.name
+    }
+  },
   methods:{
-    createGoodsInfo(){
+    updateGoodsInfo(){
       axios.post(url,{
         name : this.goodsname,
         price : this.price,
         img : this.img
       })
-      .then((res)=>{
-        console.log(res.data)
-      })
+        .then((res)=>{
+          console.log(res.data)
+        })
         .catch((err)=>{
           alert('등록 오류')
           console.log(err)

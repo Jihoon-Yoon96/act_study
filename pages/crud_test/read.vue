@@ -44,9 +44,9 @@
 </template>
 
 <script>
-import creater from "@/pages/crud/creater";
-import updater from "@/pages/crud/updater";
-import deleter from "@/pages/crud/deleter";
+import creater from "@/pages/crud_test/creater";
+import updater from "@/pages/crud_test/updater";
+import deleter from "@/pages/crud_test/deleter";
 import axios from "axios";
 export default {
   name: "read.vue",
@@ -94,19 +94,21 @@ export default {
     }
   },
   mounted() {
-    // this.readGoodsInfo()
+    this.readGoodsInfo()
   },
   updated() {
     // this.readGoodsInfo()
   },
   methods:{
     readGoodsInfo(){
-      axios.get(url)
+      axios.get('http://localhost:8080/')
         .then((res)=>{
           console.log(res.data)
+          console.log('complete')
         })
         .catch((err)=>{
           console.log(err)
+          console.log('error')
         })
     }
   }

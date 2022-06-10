@@ -106,7 +106,7 @@
 import axios from "axios";
 
 export default {
-  name: "update_delete",
+  name: "updater.vue",
   data(){
     return{
       dialog: false,

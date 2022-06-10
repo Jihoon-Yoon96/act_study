@@ -1,8 +1,9 @@
 <template>
   <v-container>
-    <v-row class="justify-end mr-1 mb-5 mt-5">
+    <v-row class="justify-end mr-1 mb-5 mt-5" v-if="this.$store.state.admin === true">
       <!--   상품 추가   -->
-      <creater/>
+      <creater
+      />
       <!--   상품 추가   -->
     </v-row>
     <v-row class="justify-center">
@@ -19,8 +20,8 @@
           <v-spacer/>
           <v-card-subtitle>{{shoes.price}}₩</v-card-subtitle>
         </v-card>
-        <v-row class="mt-1 justify-end">
-          <v-col cols="3">
+        <v-row class="mt-1 justify-end" v-if="this.$store.state.admin === true">
+          <v-col cols="3" >
             <!--   상품 수정   -->
             <updater
               :g_name="shoes.name"
@@ -49,7 +50,7 @@ import updater from "@/pages/crud/updater";
 import deleter from "@/pages/crud/deleter";
 import axios from "axios";
 export default {
-  name: "read.vue",
+  name: "create_read.vue",
   components: {
     creater,
     updater,
