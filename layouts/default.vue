@@ -1,7 +1,18 @@
 <template>
   <v-app dark>
+
     <Systembar/>
-    <gnb/>
+    <gnb :searching="searching" @openSearching="openSearching"/>
+    <search
+      v-if="searching === true"
+      style="position: fixed; width: 100%;"
+      :searching="searching" @closeSearching="closeSearching"
+    />
+    <search_result
+      v-if="searching === true"
+      style="position: fixed; top:100px;"
+    />
+
 
     <v-main>
       <v-container>
@@ -15,20 +26,28 @@
     >
       <span>&copy; {{ new Date().getFullYear() }}</span>
     </v-footer>
+
+
   </v-app>
 </template>
 
 <script>
 import gnb from "@/layouts/gnb";
 import Systembar from "@/layouts/Systembar";
+import search from "@/layouts/search";
+import search_result from "@/layouts/search_result";
+
 export default {
   name: 'DefaultLayout',
   components:{
     Systembar,
     gnb,
+    search,
+    search_result
   },
   data () {
     return {
+      searching: false,
       clipped: false,
       drawer: false,
       fixed: false,
@@ -58,6 +77,14 @@ export default {
       right: true,
       rightDrawer: false,
       title: 'Vuetify.js'
+    }
+  },
+  methods:{
+    openSearching(status){
+      this.searching = status
+    },
+    closeSearching(status){
+      this.searching = status
     }
   }
 }
