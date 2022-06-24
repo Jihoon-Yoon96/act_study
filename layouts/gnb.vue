@@ -66,8 +66,7 @@ export default {
   },
   methods: {
     nowSearching(){
-      this.searching = true;
-      this.$emit("openSearching", this.searching)
+      this.$store.commit("search/searchStatus",true)
     },
 
   },
