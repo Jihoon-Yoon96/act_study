@@ -1,20 +1,20 @@
 <template>
   <v-system-bar app class="grey darkness-5">
     <v-spacer/>
-    <!-- <div v-if="this.$store.state.user==null" class="mr-16"> -->
-    <div class="mr-16">
+    <div v-if="this.$store.state.user==null" class="mr-16">
+    <!-- <div class="mr-16"> -->
       <router-link to="/login/login" class="white--text text-caption mr-2" tag="button">로그인</router-link>
       <span class="mr-2 ml-2 white--text">|</span>
       <router-link to="/signin/signin" class="white--text text-caption ml-2 mr-16" tag="button">회원가입</router-link>
     </div>
-    <!-- <div v-else class="mr-16">
+    <div v-else class="mr-16">
         <router-link class="mr-2" to="/admin" tag="button" v-if="this.$store.getters.getAuth.member_id === 'admin'"> 관리자 페이지로 이동 </router-link>
         <router-link to="/my_main" ><button class="white--text text-caption mr-2">{{this.$store.state.user}}</button></router-link>
         <button disabled  class="white--text text-caption mr-2"> 님 반갑습니다. </button>
         <span class="mr-2 ml-2 white--text">|</span>
-        <button @click="refreshJwt" class="white--text text-caption mr-2"> {{`${minutes}:${seconds}`}}</button>
+        <button @click="mypage" class="white--text text-caption mr-2"> 마이페이지</button>
         <button @click="logout" class="white--text text-caption ml-2 mr-16" tag="button">로그아웃</button>
-    </div> -->
+    </div>
   </v-system-bar>
 </template>
 
@@ -30,20 +30,9 @@ export default {
     //     if(!this.$store.state.auth) return;
     //     this.preTime = new Date();
     // },
-    // refreshJwt(){
-    //     axios.get(this.$store.state.apihost+"/member/refresh_jwt",{
-    //         headers:{
-    //             Authorization:`Bearer ${sessionStorage.getItem("JSESSIONID")}`,
-    //         }
-    //     })
-    //     .then(res=>{
-    //         sessionStorage.setItem("JSESSIONID",res.data.jwt);
-    //         this.$store.commit('updateAuth');
-    //     })
-    //     .catch(err=>{
-    //         console.log(err);
-    //     })
-    // },
+    mypage(){
+        this.$router.push('mypage')
+    },
   },
   data:()=>({
     preTime : new Date(),

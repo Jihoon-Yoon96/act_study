@@ -14,7 +14,7 @@
 
 
     <v-main>
-      <v-container>
+      <v-container class="justify-center">
         <Nuxt />
       </v-container>
     </v-main>
