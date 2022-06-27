@@ -19,9 +19,7 @@
                 <v-row class="grey--text">03470@naver.com</v-row>
                 <v-row class="mt-5">
                   <v-btn flat outlined color="grey">프로필 수정</v-btn>
-                  <v-btn flat outlined color="grey" class="ml-2"
-                    >내 스타일</v-btn
-                  >
+                  <v-btn flat outlined color="grey" class="ml-2">내 스타일</v-btn>
                 </v-row>
               </v-col>
             </v-row>
@@ -32,16 +30,16 @@
                 <p class="grey--text">회원등급</p>
               </v-col>
               <v-divider vertical inset></v-divider>
-              <v-col cols="6" class="text-center"
-                ><strong>0P</strong> <br />
-                <p class="grey--text">포인트</p></v-col
-              >
+              <v-col cols="6" class="text-center">
+                <strong>0P</strong> <br />
+                <p class="grey--text">포인트</p>
+              </v-col>
             </v-row>
           </v-card>
         </v-col>
       </v-row>
 
-      <h3 class="mt-10">구매 내역</h3>
+      <h3 class="mt-10 mb-10">구매 내역</h3>
       <v-card flat color="grey lighten-4" class="mt-5">
         <v-row class="align-center justify-center text-center">
           <v-col cols="3" class="">전체<br />9</v-col>

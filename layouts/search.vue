@@ -1,4 +1,4 @@
-<template style="position: fixed; width: 100%; z-index: 10">
+<template style="position: fixed; width: 100%; z-index: 10"y>
   <div>
     <v-app-bar dense elevation="0" style="z-index: 10;" height="100px">
       <v-row class="justify-center align-baseline"> <!-- style="width: 100%"  class=" mt-10 white justify-center text-center align-baseline"-->

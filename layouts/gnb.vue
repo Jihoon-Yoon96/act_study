@@ -4,7 +4,7 @@
     <router-link to="/" class="ml-16">
       <v-icon>mdi-shopping</v-icon>
     </router-link>
-    <router-link to="/view/main_view" tag="button">
+    <router-link to="/" tag="button">
       <v-col cols="auto" class="text-h5"> ACT SHOPPING </v-col>
     </router-link>
 

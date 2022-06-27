@@ -6,6 +6,7 @@
       <router-link to="/login/login" class="white--text text-caption mr-2" tag="button">로그인</router-link>
       <span class="mr-2 ml-2 white--text">|</span>
       <router-link to="/signin/signin" class="white--text text-caption ml-2 mr-16" tag="button">회원가입</router-link>
+      <button @click="mypage" class="white--text text-caption mr-2"> 마이페이지</button>
     </div>
     <div v-else class="mr-16">
         <router-link class="mr-2" to="/admin" tag="button" v-if="this.$store.getters.getAuth.member_id === 'admin'"> 관리자 페이지로 이동 </router-link>
@@ -31,7 +32,7 @@ export default {
     //     this.preTime = new Date();
     // },
     mypage(){
-        this.$router.push('mypage')
+        this.$router.push('/mypage')
     },
   },
   data:()=>({
