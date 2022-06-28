@@ -49,7 +49,7 @@ export default {
     page:[
       {
         name:"STYLE",
-        url:""
+        url:"/style"
       },
       {
         name:"SHOP",

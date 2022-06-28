@@ -7,10 +7,7 @@
       v-if="this.$store.state.search.searching === true"
 
     />
-<!--    <search_result-->
-<!--      v-if="this.$store.state.search.searching === true"-->
-<!--      style="position: fixed; top:100px;"-->
-<!--    />-->
+
 
 
     <v-main>
@@ -20,7 +17,7 @@
     </v-main>
 
     <v-footer
-      :absolute="!fixed"
+
       app
     >
       <span>&copy; {{ new Date().getFullYear() }}</span>

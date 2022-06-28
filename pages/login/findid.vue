@@ -120,7 +120,7 @@ export default {
     result: "",
   }),
   props: {
-    justify:Object
+
   },
   methods: {
     submit(){
