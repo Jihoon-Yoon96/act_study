@@ -8,14 +8,15 @@
         <!--    상단 이벤트 배너    -->
         <v-carousel
           cycle
-
+          interval="3000"
           hide-delimiter-background
           class="mt-10 mb-10"
+
         >
           <!-- 이미지 -->
           <v-carousel-item class="mt-5 mb-5"
                            v-for="(banner, i) in banner" :key="i">
-            <v-card  class="grey lighten-3">
+            <v-card min-width="100%"  class="" :color="banner.color">
               <v-row justify="center" align="center" class="ma-1">
                 <v-img
                   contain
@@ -78,12 +79,12 @@
 
         <!--        brand focus 모두가 좋아하는 브랜드-->
         <v-row><h2 class="ml-3 font-weight-bold">Brand Focus <br> <p class="font-weight-light text-subtitle-2">모두가 좋아하는 브랜드</p></h2></v-row>
-        <v-row class="mb-10">
-          <v-col cols="3.5" v-for="(brand, i) in brand" :key="i">
+        <v-row class="mb-10 justify-center">
+          <v-col cols="3.5" v-for="(brand, i) in brand" :key="i" class="justify-center">
             <v-card elevation="0" outlined>
               <v-img
                 :src="brand.img"
-                width="200px"
+                width="210px"
                 height="100px"
               />
             </v-card>
@@ -105,10 +106,24 @@ export default {
     return{
       banner:[
         {
-          img : "https://kream-phinf.pstatic.net/MjAyMDExMjNfMjU0/MDAxNjA2MTAxMjMwOTg2.Lru1_LSFReeOGavo_Nv5iHAHEQDrgcRVuUDO_VwQbL0g.if4WbmNvghR7rUXR_MxttP9QrAVnboaK1IAxnaF0d6kg.JPEG/p_e1a64ddc68fe4c16b7e2390ee5daa6f4.jpg?type=m_2560",
+          color:'#F2F1EC',
+          img : "https://kream-phinf.pstatic.net/MjAyMjA2MjNfNTIg/MDAxNjU1OTQ4MzcwODc4.wSLcu1o8YjcZhVhi01hb0bzvwQWaFWGe0xDozMjHdU4g.eas82OTk7TQ7baKCW8UHzwZ6gZUjhtQK7VqH5b3wE_Eg.JPEG/a_166449fdcfb540648507ed572da3b6e0.jpg?type=m_2560",
         },
         {
-          img : ""
+          color:'#F8F7F2',
+          img : "https://kream-phinf.pstatic.net/MjAyMjA2MjdfMjAg/MDAxNjU2MzE5Njg4NzEz.Lwuyk3nQtN8DKWCbL8GatqAAT7p79teSrTFVqn6LCpkg.zngDV_2JM-kJILoEHWqEP5n8nOCthXbroHMzua62UBYg.JPEG/a_a698893acea74a40bbc410e98e6e6ad6.jpg?type=m_2560"
+        },
+        {
+          color:'#88381D',
+          img : "https://kream-phinf.pstatic.net/MjAyMjA2MjFfMjEx/MDAxNjU1ODAzOTkzMzA1.9WVtGAlWMPatWB2gOEzB-mUiYptsifoz43dxLkbt9Mcg.V0xwjZdRJpDgojtqfO7bD4RSofuhrXE2-zJuBn5Tjmgg.JPEG/a_ea0bed2fe4ac4bfca3214996786da4f8.jpg?type=m_2560",
+        },
+        {
+          color:'#FBE55E',
+          img : "https://kream-phinf.pstatic.net/MjAyMjA2MjNfMTUx/MDAxNjU1OTY3NDgwMTYw.K5zhVtXsukIYy7yN-YsfqvlIH7WOO33rNsmu-TsRu-gg.k_NH7QFyksIJ8ymfZkutN55QCWUr12aI5srbSYIlucUg.JPEG/a_36c2ed949c6f4275ae42c2036faae185.jpg?type=m_2560",
+        },
+        {
+          color:'#F8F8F8',
+          img : "https://kream-phinf.pstatic.net/MjAyMDExMjNfMjU0/MDAxNjA2MTAxMjMwOTg2.Lru1_LSFReeOGavo_Nv5iHAHEQDrgcRVuUDO_VwQbL0g.if4WbmNvghR7rUXR_MxttP9QrAVnboaK1IAxnaF0d6kg.JPEG/p_e1a64ddc68fe4c16b7e2390ee5daa6f4.jpg?type=m_2560"
         }
       ],
       goods:[

@@ -1,6 +1,7 @@
 <template>
   <v-container class="justify-center">
     <lnb/>
+    <nuxt-child/>
   </v-container>
 </template>
 
