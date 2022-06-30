@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <v-container> <!-- 임시 -->
   <h3>배송 정보</h3>
   <v-card>
     <h3>빠른배송 5,000원</h3>
