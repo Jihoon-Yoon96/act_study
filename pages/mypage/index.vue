@@ -1,7 +1,7 @@
 <template>
-  <v-row class="mt-5">
+  <v-row class="">
     <v-col cols="2"> <lnb /> </v-col>
-    <v-col cols="9">
+    <v-col cols="10">
       <nuxt-child/>
     </v-col>
   </v-row>

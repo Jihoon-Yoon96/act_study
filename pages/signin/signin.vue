@@ -149,7 +149,7 @@
                         <v-btn color="primary" text @click="checkbox1 = true; checkbox=(checkbox1 && checkbox2); dialog2 = false">
                           Agree
                         </v-btn>
-                        <v-btn color="primary" text @click="dialog2 = false; ">
+                        <v-btn color="primary" text @click="dialog2 = false; checkbox1 = false; checkbox=(checkbox1 && checkbox2); ">
                           Disagree
                         </v-btn>
                       </v-card-actions>
@@ -186,7 +186,7 @@
                         <v-btn color="primary" text @click="checkbox2 = true; checkbox=(checkbox1 && checkbox2); dialog3 = false">
                           Agree
                         </v-btn>
-                        <v-btn color="primary" text @click="dialog3 = false">
+                        <v-btn color="primary" text @click="checkbox1 = false; checkbox=(checkbox1 && checkbox2); dialog3 = false">
                           Disagree
                         </v-btn>
                       </v-card-actions>
@@ -387,7 +387,7 @@ export default {
     },
   },
   mounted(){
-    //this.$store.commit('updateAuth',this.loginCheck_myLogin)
+
   },
   computed: {
     form () {
