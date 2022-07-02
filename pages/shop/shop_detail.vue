@@ -11,14 +11,14 @@
         <h1>{{shoes.name}}</h1> <br/>
           <v-card-actions>
           <v-btn @click="openDialog">사이즈</v-btn>
-            <p v-bind:typeof="Number">{{goods.count}} fds</p> <!--size 클릭시 (2) 데이터 해당 데이터 담기 / NaN해결...-->
+            <p v-bind:typeof="Number">{{selected_size}}</p> <!--size 클릭시 (2) 데이터 해당 데이터 담기 -->
           </v-card-actions>
           <v-dialog v-model="dialog">
             <v-card>
               <v-card-title class="dlog-title">사이즈표</v-card-title>
               <b-card-text>
                 <v-form>
-                  <v-card class="size-dialog" v-for="(d, i) in size" :key="i" @click="clickSize"> {{d.sz}} <br/> {{d.buy}}</v-card> <!--size 클릭시 (1) -->
+                  <v-card class="size-dialog" v-for="(d, i) in size" :key="i" @click="clickSize(i)"> {{d.sz}} <br/> {{d.buy}}</v-card> <!--size 클릭시 (1) -->
                 </v-form>
               </b-card-text>
               <v-card-actions>
@@ -70,6 +70,7 @@ export default {
   props : [shop_customer],
   data(){
     return{
+      selected_size: '',
       goods:[
         {
           name:"Jordan 1 Low Gold Starfish",
@@ -112,8 +113,8 @@ export default {
     cslBtn() {
       return this.dialog = false;
     },
-    async clickSize() { //size 클릭시 데이터 해당 데이터 담기
-      this.goods.count += this.size.sz
+    clickSize(num) { //size 클릭시 데이터 해당 데이터 담기
+      this.selected_size = this.size[num].sz
       this.dialog = false
       console.log(this.goods.count)
     },
