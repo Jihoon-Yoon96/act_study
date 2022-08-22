@@ -13,7 +13,7 @@
               </svg>
             </v-col>
             <v-col cols="auto">
-              <v-row class="font-weight-bold">03470</v-row>
+              <v-row class="font-weight-bold">{{name}}</v-row>
               <v-row class="grey--text">03470@naver.com</v-row>
               <v-row class="mt-5">
                 <v-btn flat outlined color="grey">프로필 수정</v-btn>
@@ -81,8 +81,32 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
-  name: "main"
+  name: "main",
+  data(){
+    return{
+      name : '',
+    }
+  },
+  beforeMount() {
+    this.getGoodsInfo()
+  },
+  methods:{
+    getGoodsInfo(){
+      axios.get('http://localhost:8080/api/library/book')
+        .then((res)=>{
+          console.log(res.data)
+          this.name = res.data[0].name
+          console.log(this.name)
+        })
+        .catch((err)=>{
+          alert('상품 정보 수신 오류')
+          console.log(err)
+
+        })
+    }
+  }
 }
 </script>
 

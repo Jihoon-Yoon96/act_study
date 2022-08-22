@@ -22,7 +22,62 @@
         </v-carousel-item>
       </v-carousel>
     </v-col>
-    <v-col cols="6"><nuxt-child/></v-col>
+    <!-- 이미지 -->
+
+    <!-- 제품 상세 내용 -->
+    <v-col cols="6"><!-- 제품 이름 -->
+      <v-row class="mt-10">
+        <v-col cols="12"><h2>Nike</h2></v-col>
+        <v-col cols="12"><p>Nike Air Force 1 '07 Low White</p></v-col>
+      </v-row>
+      <!-- 제품 이름 -->
+
+      <!-- 사이즈 표 -->
+      <v-row justify="space-between">
+        <v-col cols="auto">사이즈</v-col>
+        <v-col cols="auto">
+          <v-menu offset-y>
+            <template v-slot:activator="{ on, attrs }">
+              <v-btn
+                color="secondary"
+                v-bind="attrs"
+                v-on="on"
+              >
+                {{selected_size}}
+              </v-btn>
+            </template>
+            <v-list>
+              <v-list-item
+                v-for="(size, i) in sizes"
+                :key="i"
+              >
+                <v-list-item-title @click="selected_size = size.title">{{ size.title }}</v-list-item-title>
+              </v-list-item>
+            </v-list>
+          </v-menu>
+        </v-col>
+      </v-row>
+      <!-- 사이즈 표 -->
+      <v-divider class="mt-5 mb-5"></v-divider>
+      <!--  최근 거래가  -->
+      <v-row justify="space-between">
+        <v-col cols="auto">최근 거래가</v-col>
+        <v-col cols="auto" class="text-right"><h3>131,000원</h3> <p>-8,000원</p></v-col>
+      </v-row>
+      <!--  최근 거래가  -->
+
+      <!--  구매/판매  -->
+      <v-row >
+        <v-col cols="6"><v-hover class="white--text" v-slot="{hover}"><v-btn depressed height="50px" width="100%" color="red"><h3 v-if="hover">130,000원</h3><h3 v-else>구매</h3></v-btn></v-hover></v-col>
+        <v-col cols="6"><v-hover class="white--text" v-slot="{hover}"><v-btn depressed height="50px" width="100%" color="primary"><h3 v-if="hover">125,000원</h3><h3 v-else>구매</h3></v-btn></v-hover></v-col>
+        <v-col cols="12"><v-btn depressed height="50px" width="100%" outlined color="black" >관심상품 10.5만</v-btn></v-col>
+      </v-row>
+      <!--  구매/판매  -->
+    </v-col>
+    <!-- 제품 상세 내용 -->
+    <v-row>
+      <v-col><nuxt-child/></v-col>
+    </v-row>
   </v-row>
 </template>
 
@@ -59,6 +114,16 @@ export default {
           price : 400000,
           link: "https://kream.co.kr/products/62330"
         }
+      ],
+      selected_size: '모든 사이즈',
+      sizes: [
+        { title: 220 },
+        { title: 230 },
+        { title: 240 },
+        { title: 250 },
+        { title: 260 },
+        { title: 270 },
+        { title: 280 },
       ],
     }
   }

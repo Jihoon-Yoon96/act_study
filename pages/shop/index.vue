@@ -32,30 +32,40 @@
       </v-col>
     </v-row>
 <!--    인기 상품 필터 END-->
+    <v-row class="mt-5">
+      <v-col cols="2"><lnb/></v-col>
+      <v-col cols="10">
+        <v-row class="pa-5">
+          <v-col cols="3" v-for="(good,i) in goods" :key="i">
+            <shoes_card :img="good.img" :name="good.name" :price="good.price" :min_height=200 :max_height=200 :min_width=200 :max_width=200 />
+          </v-col>
+          <v-col cols="3" v-for="(good,i) in goods" :key="i">
+            <shoes_card :img="good.img" :name="good.name" :price="good.price" :min_height=200 :max_height=200 :min_width=200 :max_width=200 />
+          </v-col>
+
+        </v-row>
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 
 <script>
+import shoes_card from '@/components/shoes_card'
+import lnb from '@/pages/shop/lnb'
 export default {
   name: "index",
+  components:{
+    lnb,
+    shoes_card
+  },
   data(){
     return{
       category:[
-        {
-          name:"신발",
-        },
-        {
-          name:"의류",
-        },
-        {
-          name:"패션잡화",
-        },
-        {
-          name:"라이프",
-        },
-        {
-          name:"테크",
-        },
+        {name:"신발",},
+        {name:"의류",},
+        {name:"패션잡화",},
+        {name:"라이프",},
+        {name:"테크",},
       ],
       popular:[
         {
@@ -90,6 +100,32 @@ export default {
           name:"Jordan",
           img:"https://kream-phinf.pstatic.net/MjAyMjAzMThfMjU3/MDAxNjQ3NTgxMTM3ODI3.0ANFWzIQbN9Ff5yj6M_SQgJxbHWoJA6zZQspzOgzc7cg.wPxu-j2dH52ZfPWDCCCpWGXn0Qk7X0EMqb487qeLu0cg.PNG/a_03df0c99036c42a3bb01c9ff6f8a95ff.png"
         }
+      ],
+      goods:[
+        {
+          name:"Jordan 1 Low Gold Starfish",
+          img:"https://kream-phinf.pstatic.net/MjAyMjA1MjBfMjE5/MDAxNjUzMDMwMzkxODY3.PYVSjKRLfHXBtmc3d3bsdgUgtSiE0G0jVSSJBg17nG0g.xWyI4mVG82ZjphChIV_ba83pzEzQkfBjn9bn-Vhz_UIg.PNG/a_9a56605aabe6476ba812bc2ea2502906.png?type=m_webp",
+          price: 223000,
+          link:"https://kream.co.kr/products/62385"
+        },
+        {
+          name:"Nike Dunk Low Retro PRM Graffiti",
+          img:"https://kream-phinf.pstatic.net/MjAyMjA1MTlfMTAw/MDAxNjUyOTUwNzQzMjM2.ouPPxxF-4cWTNIHzxNeP5A_R7WUqB7W0VTFtPMhyLy4g.pJ9_acx650hKWcmdWcyYsma3UqEwd-z3Q-4KKurMsCUg.PNG/a_8682770fbd3642c081275041112912e2.png?type=m_webp",
+          price: 139000,
+          link:"https://kream.co.kr/products/62202"
+        },
+        {
+          name:"Crocs X Salehe Bembury Pollex Clog Stratus",
+          img:"https://kream-phinf.pstatic.net/MjAyMjA1MjBfMjU1/MDAxNjUzMDM5NzMxMDI0.LxKyutz4m3KM615kuvbhFXgOukOqwJSa5XOzeRlBrSAg.Aps3EXxPjcMb_LztAA-TUcFiuWGgQwil2VRW_-8-49Ag.PNG/a_8e0d89ceda7f45ed97c78db7f6bb5f96.png?type=m_webp",
+          price: 300000,
+          link:"https://kream.co.kr/products/62430"
+        },
+        {
+          name: "New Balance X Joe Freshgoods 9060 Inside",
+          img: "https://kream-phinf.pstatic.net/MjAyMjA1MjBfNzQg/MDAxNjUzMDIyNjc3MjE2.SSubVvt6X-EpACLHI84D-bubgkk8KmrkIZ9nnWONZksg.eWoe1xg_MMbHfE17IZv5Ck1Ag13bWf8IZlpPBM5T9hMg.PNG/a_9c615b7d859f4ba4987a80b0e0067896.png?type=m_webp",
+          price : 400000,
+          link: "https://kream.co.kr/products/62330"
+        },
       ]
     }
   },

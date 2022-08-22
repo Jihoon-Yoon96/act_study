@@ -31,15 +31,16 @@
         <!--    발매 상품    -->
         <v-row class="justify-center">
           <v-col cols="3" v-for="(shoes, i) in goods" :key="i">
-            <v-card min-height="370px" max-height="370px">
-              <v-img
-                contain
-                aspect-ratio="1"
-                :src=shoes.img
-              />
-              <v-card-title class="text-subtitle-2">{{shoes.name}}</v-card-title>
-              <v-card-subtitle>{{shoes.price}}</v-card-subtitle>
-            </v-card>
+<!--            <v-card min-height="370px" max-height="370px">-->
+<!--              <v-img-->
+<!--                contain-->
+<!--                aspect-ratio="1"-->
+<!--                :src=shoes.img-->
+<!--              />-->
+<!--              <v-card-title class="text-subtitle-2">{{shoes.name}}</v-card-title>-->
+<!--              <v-card-subtitle>{{shoes.price}}</v-card-subtitle>-->
+<!--            </v-card>-->
+            <shoes_card :img="shoes.img" :name="shoes.name" :price="shoes.price" :min_height=370 :max_height=370 :min_width=200 :max_width=2000 />
           </v-col>
         </v-row>
         <v-row class="justify-center mr-1 mb-5 mt-5">
@@ -98,10 +99,14 @@
 
 <script>
 import add_goods from "@/pages/view/add_goods";
+import shoes_card from "@/components/shoes_card";
 import axios from "axios";
 export default {
   name: "main_view",
-  components: {add_goods},
+  components: {
+    add_goods,
+    shoes_card
+  },
   data(){
     return{
       banner:[
