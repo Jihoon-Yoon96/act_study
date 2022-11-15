@@ -94,7 +94,7 @@ export default {
     }
   },
   mounted() {
-    this.readGoodsInfo()
+    //this.readGoodsInfo()
   },
   updated() {
     // this.readGoodsInfo()
